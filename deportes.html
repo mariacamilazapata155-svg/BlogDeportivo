@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora fútbol, tenis, NBA, F1, NFL y MotoGP con tarjetas interactivas y noticias por disciplina.">
+    <meta name="author" content="MyBlog">
+    <meta property="og:title" content="Deportes | Blog Deportivo">
+    <meta property="og:description" content="Las principales disciplinas deportivas en un solo lugar.">
+    <meta property="og:type" content="website">
+    <title>Deportes | Blog Deportivo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ── Sección de deportes ── */
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            color: #9e8f7a;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0dbd3;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        /* ── Tarjeta de deporte ── */
+        .sport-card {
+            background: #faf8f5;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e0d8;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(44, 42, 39, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            background: #e0dbd3;
+            position: relative;
+        }
+
+        /* Placeholder cuando no hay imagen */
+        .card-img-placeholder {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #e0dbd3 0%, #cdc7be 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img-placeholder .sport-icon {
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .card-number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            color: #c8bfaf;
+            padding: 14px 16px 0;
+            line-height: 1;
+        }
+
+        .card-category {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #9e8f7a;
+            padding: 8px 16px 4px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
+            color: #2c2a27;
+            padding: 0 16px 6px;
+            line-height: 1.35;
+        }
+
+        .card-meta {
+            font-size: 0.75rem;
+            color: #a09890;
+            padding: 0 16px 16px;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Panel lateral de detalle ── */
+        .detail-overlay {
+            display: none;
+            position: fixed;
+            top: 0; right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 42, 39, 0.5);
+            z-index: 100;
+            backdrop-filter: blur(2px);
+        }
+
+        .detail-overlay.active {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .detail-panel {
+            background: #faf8f5;
+            width: 460px;
+            max-width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            box-shadow: -8px 0 32px rgba(44, 42, 39, 0.2);
+            animation: slideIn 0.28s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to   { transform: translateX(0); }
+        }
+
+        .panel-close {
+            position: sticky;
+            top: 0;
+            background: #faf8f5;
+            border-bottom: 1px solid #e5e0d8;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: flex-end;
+            z-index: 2;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: #5a5550;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .btn-close:hover { background: #e5e0d8; }
+
+        .panel-hero {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #e0dbd3, #cdc7be);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .panel-body {
+            padding: 24px;
+        }
+
+        .panel-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #9e8f7a;
+            margin-bottom: 6px;
+        }
+
+        .panel-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            color: #2c2a27;
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+
+        .panel-desc {
+            font-size: 0.93rem;
+            color: #5a5550;
+            line-height: 1.75;
+            margin-bottom: 28px;
+        }
+
+        .panel-news-title {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #9e8f7a;
+            border-bottom: 1px solid #e5e0d8;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee9e1;
+            text-decoration: none;
+            transition: background 0.15s;
+            border-radius: 4px;
+        }
+
+        .news-item:hover { background: #f0ebe2; padding-left: 6px; }
+
+        .news-thumb {
+            width: 64px;
+            height: 64px;
+            border-radius: 4px;
+            background: #e0dbd3;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        .news-info { flex: 1; }
+
+        .news-category {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #9e8f7a;
+            margin-bottom: 4px;
+        }
+
+        .news-headline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.9rem;
+            color: #2c2a27;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .news-date {
+            font-size: 0.7rem;
+            color: #a09890;
+        }
+
+        .btn-ver-mas {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #2c2a27;
+            color: #f0ebe2;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .btn-ver-mas:hover { background: #4a4540; }
+
+        @media (max-width: 600px) {
+            .cards-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .detail-panel { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/header.png" alt="Imagen del Blog">
+        <div class="header-content">
+            <h1>Blog Deportivo</h1>
+            <p class="header-subtitle">Fútbol · Tenis · NBA · F1 · NFL · MotoGP</p>
+        </div>
+        <nav>
+            <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="deportistas.html">Deportistas</a></li>
+                <li><a href="memorias.html">Memorias</a></li>
+                <li><a href="torneos.html">Torneos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <p class="section-title">Deportes</p>
+
+        <div class="cards-grid" id="sports-grid">
+
+            <a class="sport-card" onclick="openPanel('futbol'); return false;" href="#">
+                <div class="card-img-placeholder"><span class="sport-icon">⚽</span></div>
+                <div class="card-number">01</div>
+                <div class="card-category">Deporte rey</div>
+                <div class="card-title">Fútbol</div>
+                <div class="card-meta">BLOG DEPORTIVO</div>
+            </a>
+
+            <a class="sport-card" onclick="openPanel('tenis'); return false;" href="#">
+                <div class="card-img-placeholder"><span class="sport-icon">🎾</span></div>
+                <div class="card-number">02</div>
+                <div class="card-category">Raqueta</div>
+                <div class="card-title">Tenis</div>
+                <div class="card-meta">BLOG DEPORTIVO</div>
+            </a>
+
+            <a class="sport-card" onclick="openPanel('nba'); return false;" href="#">
+                <div class="card-img-placeholder"><span class="sport-icon">🏀</span></div>
+                <div class="card-number">03</div>
+                <div class="card-category">Baloncesto</div>
+                <div class="card-title">NBA</div>
+                <div class="card-meta">BLOG DEPORTIVO</div>
+            </a>
+
+            <a class="sport-card" onclick="openPanel('f1'); return false;" href="#">
+                <div class="card-img-placeholder"><span class="sport-icon">🏎️</span></div>
+                <div class="card-number">04</div>
+                <div class="card-category">Automovilismo</div>
+                <div class="card-title">Fórmula 1</div>
+                <div class="card-meta">BLOG DEPORTIVO</div>
+            </a>
+
+            <a class="sport-card" onclick="openPanel('nfl'); return false;" href="#">
+                <div class="card-img-placeholder"><span class="sport-icon">🏈</span></div>
+                <div class="card-number">05</div>
+                <div class="card-category">Fútbol americano</div>
+                <div class="card-title">NFL</div>
+                <div class="card-meta">BLOG DEPORTIVO</div>
+            </a>
+
+            <a class="sport-card" onclick="openPanel('motogp'); return false;" href="#">
+                <div class="card-img-placeholder"><span class="sport-icon">🏍️</span></div>
+                <div class="card-number">06</div>
+                <div class="card-category">Motociclismo</div>
+                <div class="card-title">MotoGP</div>
+                <div class="card-meta">BLOG DEPORTIVO</div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Panel de detalle -->
+    <div class="detail-overlay" id="detail-overlay" onclick="closePanel(event)">
+        <div class="detail-panel" id="detail-panel">
+            <div class="panel-close">
+                <button class="btn-close" onclick="closePanel(null, true)">✕</button>
+            </div>
+            <div class="panel-hero" id="panel-hero"></div>
+            <div class="panel-body">
+                <div class="panel-tag" id="panel-tag"></div>
+                <div class="panel-title" id="panel-title"></div>
+                <div class="panel-desc" id="panel-desc"></div>
+                <div class="panel-news-title">Últimas noticias</div>
+                <div id="panel-news"></div>
+                <a class="btn-ver-mas" href="noticias.html">Ver todas las noticias →</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <nav class="footer-nav" aria-label="Enlaces del sitio">
+            <a href="index.html">Inicio</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="deportes.html">Deportes</a>
+            <a href="deportistas.html">Deportistas</a>
+            <a href="memorias.html">Memorias</a>
+            <a href="torneos.html">Torneos</a>
+        </nav>
+        <p>&copy; 2026 MyBlog - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Datos de cada deporte
+        const sportsData = {
+            futbol: {
+                icon: '⚽',
+                tag: 'Deporte rey',
+                title: 'Fútbol',
+                desc: 'El fútbol es el deporte más popular del mundo. Desde la Premier League hasta la Champions, pasando por La Liga, la Serie A y la Bundesliga, cubrimos los mejores torneos, equipos y jugadores del planeta.',
+                news: [
+                    { category: 'Fútbol', headline: 'El Real Madrid gana su decimoquinta Champions League', date: 'Mayo 2026' },
+                    { category: 'Fútbol', headline: 'La selección Colombia clasifica al Mundial 2026', date: 'Abril 2026' },
+                    { category: 'Fútbol', headline: 'Nuevo récord de goles en una temporada de Premier League', date: 'Marzo 2026' },
+                ]
+            },
+            tenis: {
+                icon: '🎾',
+                tag: 'Raqueta',
+                title: 'Tenis',
+                desc: 'Seguimos de cerca los cuatro Grand Slams: Australian Open, Roland Garros, Wimbledon y el US Open. Análisis de partidos, rankings ATP y WTA, y las historias detrás de los grandes campeones.',
+                news: [
+                    { category: 'Tenis', headline: 'Alcaraz domina en Roland Garros con una actuación impecable', date: 'Mayo 2026' },
+                    { category: 'Tenis', headline: 'Swiatek suma su quinto título de Grand Slam', date: 'Abril 2026' },
+                    { category: 'Tenis', headline: 'La batalla generacional que define el tenis moderno', date: 'Marzo 2026' },
+                ]
+            },
+            nba: {
+                icon: '🏀',
+                tag: 'Baloncesto',
+                title: 'NBA',
+                desc: 'La mejor liga de baloncesto del mundo. Análisis de temporada regular, playoffs, récords históricos y los jugadores que están cambiando el juego. Desde los Lakers hasta los Celtics.',
+                news: [
+                    { category: 'NBA', headline: 'Los Boston Celtics repiten como campeones de la NBA', date: 'Junio 2026' },
+                    { category: 'NBA', headline: 'LeBron James celebra 22 temporadas en la liga', date: 'Mayo 2026' },
+                    { category: 'NBA', headline: 'El rookie del año que nadie esperaba', date: 'Abril 2026' },
+                ]
+            },
+            f1: {
+                icon: '🏎️',
+                tag: 'Automovilismo',
+                title: 'Fórmula 1',
+                desc: 'La máxima categoría del automovilismo mundial. Análisis técnico de los monoplazas, estrategias de carrera, clasificación del campeonato de pilotos y constructores, y la historia de los grandes circuitos.',
+                news: [
+                    { category: 'F1', headline: 'Verstappen lidera el campeonato con autoridad en Mónaco', date: 'Mayo 2026' },
+                    { category: 'F1', headline: 'Ferrari presenta su innovación técnica para la temporada', date: 'Marzo 2026' },
+                    { category: 'F1', headline: 'El GP de Colombia podría sumarse al calendario 2027', date: 'Febrero 2026' },
+                ]
+            },
+            nfl: {
+                icon: '🏈',
+                tag: 'Fútbol americano',
+                title: 'NFL',
+                desc: 'La liga de fútbol americano más importante del mundo. Cobertura del Super Bowl, análisis de equipos, estadísticas de jugadores y todo lo que necesitas saber sobre el deporte más popular en Estados Unidos.',
+                news: [
+                    { category: 'NFL', headline: 'Los Kansas City Chiefs buscan el cuarto título consecutivo', date: 'Febrero 2026' },
+                    { category: 'NFL', headline: 'El quarterback que redefine la posición en la era moderna', date: 'Enero 2026' },
+                    { category: 'NFL', headline: 'Draft 2026: los mejores prospectos universitarios', date: 'Abril 2026' },
+                ]
+            },
+            motogp: {
+                icon: '🏍️',
+                tag: 'Motociclismo',
+                title: 'MotoGP',
+                desc: 'La élite del motociclismo mundial. Seguimos cada Gran Premio, la batalla por el campeonato de pilotos y constructores, y la tecnología que convierte estas motos en las más rápidas del planeta.',
+                news: [
+                    { category: 'MotoGP', headline: 'Bagnaia defiende su corona con victoria en Jerez', date: 'Mayo 2026' },
+                    { category: 'MotoGP', headline: 'Marc Márquez vuelve al podio en el circuito de las Américas', date: 'Abril 2026' },
+                    { category: 'MotoGP', headline: 'La nueva generación colombiana en el mundial de motos', date: 'Marzo 2026' },
+                ]
+            }
+        };
+
+        function openPanel(key) {
+            const data = sportsData[key];
+            if (!data) return;
+
+            document.getElementById('panel-hero').textContent = data.icon;
+            document.getElementById('panel-tag').textContent = data.tag;
+            document.getElementById('panel-title').textContent = data.title;
+            document.getElementById('panel-desc').textContent = data.desc;
+
+            const newsContainer = document.getElementById('panel-news');
+            newsContainer.innerHTML = data.news.map(n => `
+                <a class="news-item" href="noticias.html">
+                    <div class="news-thumb"></div>
+                    <div class="news-info">
+                        <div class="news-category">${n.category}</div>
+                        <div class="news-headline">${n.headline}</div>
+                        <div class="news-date">${n.date}</div>
+                    </div>
+                </a>
+            `).join('');
+
+            document.getElementById('detail-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePanel(event, force) {
+            if (force || (event && event.target === document.getElementById('detail-overlay'))) {
+                document.getElementById('detail-overlay').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html>

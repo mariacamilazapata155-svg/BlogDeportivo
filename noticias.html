@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Últimas noticias deportivas de fútbol, tenis, NBA, F1, NFL y MotoGP.">
+        <meta name="author" content="MyBlog">
+        <meta property="og:title" content="Noticias | Blog Deportivo">
+        <meta property="og:description" content="Noticias actuales del mundo deportivo.">
+        <meta property="og:type" content="website">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
+        <title>Noticias | Blog Deportivo</title>
+    </head>
+    <body>
+        <header>
+            <img src="images/header.png" alt="Imagen del Blog">
+            <div class="header-content">
+                <h1>Blog Deportivo</h1>
+                <p class="header-subtitle">Fútbol · Tenis · NBA · F1 · NFL · MotoGP</p>
+            </div>
+            <nav>
+                <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="deportes.html">Deportes</a></li>
+                    <li><a href="deportistas.html">Deportistas</a></li>
+                    <li><a href="memorias.html">Memorias</a></li>
+                    <li><a href="torneos.html">Torneos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-wide">
+            <div class="page-intro">
+                <h2 class="section-title">Noticias</h2>
+                <p>Las últimas novedades del mundo deportivo, organizadas por disciplina.</p>
+            </div>
+
+            <div class="filter-bar" role="group" aria-label="Filtrar noticias por deporte">
+                <button class="filter-btn active" type="button" data-filter="all">Todas</button>
+                <button class="filter-btn" type="button" data-filter="futbol">Fútbol</button>
+                <button class="filter-btn" type="button" data-filter="tenis">Tenis</button>
+                <button class="filter-btn" type="button" data-filter="nba">NBA</button>
+                <button class="filter-btn" type="button" data-filter="f1">F1</button>
+                <button class="filter-btn" type="button" data-filter="nfl">NFL</button>
+                <button class="filter-btn" type="button" data-filter="motogp">MotoGP</button>
+            </div>
+
+            <div class="news-grid">
+
+                <!-- FÚTBOL -->
+                <article class="news-card" data-category="futbol">
+                    <p class="news-card-tag">Fútbol · Mundial 2026</p>
+                    <h3>España, campeón del mundo 2026</h3>
+                    <p class="news-card-date">19 de julio de 2026</p>
+                    <p class="news-card-excerpt">La Roja venció 1-0 a Argentina en la final del MetLife Stadium de Nueva Jersey con gol de Ferran Torres, conquistando su segunda estrella mundialista 16 años después de Sudáfrica 2010.</p>
+                </article>
+
+                <article class="news-card" data-category="futbol">
+                    <p class="news-card-tag">Fútbol · Mundial 2026</p>
+                    <h3>Lamine Yamal, la figura de un Mundial histórico</h3>
+                    <p class="news-card-date">19 de julio de 2026</p>
+                    <p class="news-card-excerpt">Con apenas 18 años, el extremo del FC Barcelona se convirtió en uno de los jugadores más destacados del torneo, deslumbrando en cada partido con su desborde y visión de juego.</p>
+                </article>
+
+                <!-- TENIS -->
+                <article class="news-card" data-category="tenis">
+                    <p class="news-card-tag">Tenis · Wimbledon 2026</p>
+                    <h3>Sinner bicampeón en Wimbledon: defiende el título con autoridad</h3>
+                    <p class="news-card-date">12 de julio de 2026</p>
+                    <p class="news-card-excerpt">El italiano Jannik Sinner revalidó con éxito su corona en el All England Club, confirmando su dominio en la hierba y consolidándose como número uno indiscutible del circuito ATP.</p>
+                </article>
+
+                <article class="news-card" data-category="tenis">
+                    <p class="news-card-tag">Tenis · Wimbledon 2026</p>
+                    <h3>Linda Nosková, nueva campeona femenina de Wimbledon 2026</h3>
+                    <p class="news-card-date">12 de julio de 2026</p>
+                    <p class="news-card-excerpt">La checa se alzó con el título en el cuadro femenino tras la sorpresiva eliminación de Swiatek en tercera ronda ante la filipina Alexandra Eala, que sacudió el torneo desde el inicio.</p>
+                </article>
+
+                <!-- NBA -->
+                <article class="news-card" data-category="nba">
+                    <p class="news-card-tag">NBA · Temporada 2025-26</p>
+                    <h3>Oklahoma City Thunder, bicampeones de la NBA: la nueva dinastía</h3>
+                    <p class="news-card-date">Junio 2026</p>
+                    <p class="news-card-excerpt">Shai Gilgeous-Alexander y los Thunder buscan repetir el título conquistado en 2025 ante los Indiana Pacers, en lo que podría ser el inicio de una era dominante en la NBA.</p>
+                </article>
+
+                <article class="news-card" data-category="nba">
+                    <p class="news-card-tag">NBA · 2025-26</p>
+                    <h3>SGA, MVP de la temporada: el mejor jugador del planeta</h3>
+                    <p class="news-card-date">Mayo 2026</p>
+                    <p class="news-card-excerpt">Shai Gilgeous-Alexander reafirma su condición de figura global del baloncesto con otra temporada de élite liderando a un Thunder que arrasa en el Oeste.</p>
+                </article>
+
+                <!-- F1 -->
+                <article class="news-card" data-category="f1">
+                    <p class="news-card-tag">F1 · Temporada 2026</p>
+                    <h3>Kimi Antonelli lidera el Mundial de F1 2026 con Mercedes</h3>
+                    <p class="news-card-date">Julio 2026</p>
+                    <p class="news-card-excerpt">El joven piloto italiano, con solo 19 años, encabeza el campeonato de pilotos con 204 puntos tras 10 carreras, 45 por delante de Lewis Hamilton, en una temporada marcada por el nuevo reglamento técnico.</p>
+                </article>
+
+                <article class="news-card" data-category="f1">
+                    <p class="news-card-tag">F1 · Temporada 2026</p>
+                    <h3>Hamilton y Ferrari: la batalla por el campeonato sigue abierta</h3>
+                    <p class="news-card-date">Julio 2026</p>
+                    <p class="news-card-excerpt">El siete veces campeón del mundo es segundo en el Mundial con Ferrari a 45 puntos del líder. El SF-26 llega a Hungaroring como el coche favorito en clasificación, con Hamilton dispuesto a recortar distancias.</p>
+                </article>
+
+                <!-- NFL -->
+                <article class="news-card" data-category="nfl">
+                    <p class="news-card-tag">NFL · Super Bowl 2026</p>
+                    <h3>Kansas City Chiefs, cuatro títulos consecutivos: el reinado de Mahomes</h3>
+                    <p class="news-card-date">Febrero 2026</p>
+                    <p class="news-card-excerpt">Patrick Mahomes lideró a los Chiefs a un cuarto Super Bowl consecutivo, un hito sin precedentes en la historia moderna de la NFL que los corona como la gran dinastía del fútbol americano.</p>
+                </article>
+
+                <!-- MOTOGP -->
+                <article class="news-card" data-category="motogp">
+                    <p class="news-card-tag">MotoGP · Temporada 2026</p>
+                    <h3>Márquez, récord histórico en Sachsenring: 10 victorias en el mismo circuito</h3>
+                    <p class="news-card-date">Julio 2026</p>
+                    <p class="news-card-excerpt">El vigente campeón del mundo igualó la marca de Giacomo Agostini con su décima victoria en el Sachsenring, pulverizando además el récord absoluto de la pista en clasificación.</p>
+                </article>
+
+                <article class="news-card" data-category="motogp">
+                    <p class="news-card-tag">MotoGP · Temporada 2026</p>
+                    <h3>Mundial de MotoGP 2026: solo 24 puntos entre los cinco primeros</h3>
+                    <p class="news-card-date">Julio 2026</p>
+                    <p class="news-card-excerpt">Tras once grandes premios disputados, la clasificación del Mundial presenta una igualada histórica en la era moderna de MotoGP, con Bezzecchi, Martín, Di Giannantonio y Márquez peleando palmo a palmo.</p>
+                </article>
+
+            </div>
+        </main>
+
+        <footer>
+            <nav class="footer-nav" aria-label="Enlaces del sitio">
+                <a href="index.html">Inicio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="deportistas.html">Deportistas</a>
+                <a href="memorias.html">Memorias</a>
+                <a href="torneos.html">Torneos</a>
+            </nav>
+            <p>&copy; 2026 MyBlog - Todos los derechos reservados</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

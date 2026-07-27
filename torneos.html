@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Torneos y competencias deportivas: Champions, Grand Slams, NBA, F1, Super Bowl y MotoGP.">
+        <meta name="author" content="MyBlog">
+        <meta property="og:title" content="Torneos | Blog Deportivo">
+        <meta property="og:description" content="Calendario y cobertura de las principales competencias deportivas.">
+        <meta property="og:type" content="website">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
+        <title>Torneos | Blog Deportivo</title>
+    </head>
+    <body>
+        <header>
+            <img src="images/header.png" alt="Imagen del Blog">
+            <div class="header-content">
+                <h1>Blog Deportivo</h1>
+                <p class="header-subtitle">Fútbol · Tenis · NBA · F1 · NFL · MotoGP</p>
+            </div>
+            <nav>
+                <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="deportes.html">Deportes</a></li>
+                    <li><a href="deportistas.html">Deportistas</a></li>
+                    <li><a href="memorias.html">Memorias</a></li>
+                    <li><a href="torneos.html">Torneos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-wide">
+            <div class="page-intro">
+                <h2 class="section-title">Torneos</h2>
+                <p>Las competencias más importantes del calendario deportivo, con fechas, sedes y estado actual.</p>
+            </div>
+
+            <div class="tournament-grid">
+                <article class="tournament-card">
+                    <div class="tournament-header">
+                        <span class="tournament-icon">⚽</span>
+                        <span class="tournament-status status-live">Finalizado</span>
+                    </div>
+                    <p class="tournament-sport">Fútbol</p>
+                    <h3>UEFA Champions League 2025/26</h3>
+                    <p class="tournament-dates">Sept 2025 — Jun 2026</p>
+                    <p class="tournament-location">Europa · Final en Budapest</p>
+                </article>
+
+                <article class="tournament-card">
+                    <div class="tournament-header">
+                        <span class="tournament-icon">🎾</span>
+                        <span class="tournament-status status-live">Finalizado</span>
+                    </div>
+                    <p class="tournament-sport">Tenis</p>
+                    <h3>Roland Garros 2026</h3>
+                    <p class="tournament-dates">Mayo 2026</p>
+                    <p class="tournament-location">París, Francia · Arcilla</p>
+                </article>
+
+                <article class="tournament-card">
+                    <div class="tournament-header">
+                        <span class="tournament-icon">🏀</span>
+                        <span class="tournament-status status-live">Finalizado</span>
+                    </div>
+                    <p class="tournament-sport">NBA</p>
+                    <h3>NBA Playoffs 2026</h3>
+                    <p class="tournament-dates">Abr — Jun 2026</p>
+                    <p class="tournament-location">Estados Unidos · Canadá</p>
+                </article>
+
+                <article class="tournament-card">
+                    <div class="tournament-header">
+                        <span class="tournament-icon">🏎️</span>
+                        <span class="tournament-status status-live">En curso</span>
+                    </div>
+                    <p class="tournament-sport">Fórmula 1</p>
+                    <h3>Campeonato Mundial F1 2026</h3>
+                    <p class="tournament-dates">Mar — Dic 2026</p>
+                    <p class="tournament-location">24 Grandes Premios</p>
+                </article>
+
+                <article class="tournament-card">
+                    <div class="tournament-header">
+                        <span class="tournament-icon">🏈</span>
+                        <span class="tournament-status status-finished">Finalizado</span>
+                    </div>
+                    <p class="tournament-sport">NFL</p>
+                    <h3>Super Bowl LX</h3>
+                    <p class="tournament-dates">Febrero 2026</p>
+                    <p class="tournament-location">Santa Clara, California</p>
+                </article>
+
+                <article class="tournament-card">
+                    <div class="tournament-header">
+                        <span class="tournament-icon">🏍️</span>
+                        <span class="tournament-status status-live">En curso</span>
+                    </div>
+                    <p class="tournament-sport">MotoGP</p>
+                    <h3>Campeonato MotoGP 2026</h3>
+                    <p class="tournament-dates">Mar — Nov 2026</p>
+                    <p class="tournament-location">21 Grandes Premios</p>
+                </article>
+
+                <article class="tournament-card">
+                    <div class="tournament-header">
+                        <span class="tournament-icon">⚽</span>
+                        <span class="tournament-status status-upcoming">Finalizado</span>
+                    </div>
+                    <p class="tournament-sport">Fútbol</p>
+                    <h3>Copa Mundial FIFA 2026</h3>
+                    <p class="tournament-dates">Jun — Jul 2026</p>
+                    <p class="tournament-location">Estados Unidos · México · Canadá</p>
+                </article>
+
+                <article class="tournament-card">
+                    <div class="tournament-header">
+                        <span class="tournament-icon">🎾</span>
+                        <span class="tournament-status status-upcoming">Finalizado</span>
+                    </div>
+                    <p class="tournament-sport">Tenis</p>
+                    <h3>Wimbledon 2026</h3>
+                    <p class="tournament-dates">Jun — Jul 2026</p>
+                    <p class="tournament-location">Londres, Inglaterra · Hierba</p>
+                </article>
+            </div>
+        </main>
+
+        <footer>
+            <nav class="footer-nav" aria-label="Enlaces del sitio">
+                <a href="index.html">Inicio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="deportistas.html">Deportistas</a>
+                <a href="memorias.html">Memorias</a>
+                <a href="torneos.html">Torneos</a>
+            </nav>
+            <p>&copy; 2026 MyBlog - Todos los derechos reservados</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

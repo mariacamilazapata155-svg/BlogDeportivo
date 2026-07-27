@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Blog deportivo sobre fútbol, tenis, NBA, F1, NFL y MotoGP. Noticias, perfiles de atletas y memorias del mundo del deporte.">
+        <meta name="author" content="MyBlog">
+        <meta property="og:title" content="Blog Deportivo | Inicio">
+        <meta property="og:description" content="Noticias, deportes, deportistas y memorias del mundo deportivo.">
+        <meta property="og:type" content="website">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
+        <title>Inicio | Blog Deportivo</title>
+    </head>
+    <body>
+        <header>
+            <!-- Uso recomendado en HTML -->
+            <picture>
+                <source srcset="images/header.webp" type="image/webp">
+                <img src="images/header.jpg" alt="Blog Deportivo">
+            </picture>
+            <div class="header-content">
+                <h1>Blog Deportivo</h1>
+                <p class="header-subtitle">Fútbol · Tenis · NBA · F1 · NFL · MotoGP</p>
+            </div>
+            <nav>
+                <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="deportes.html">Deportes</a></li>
+                    <li><a href="deportistas.html">Deportistas</a></li>
+                    <li><a href="memorias.html">Memorias</a></li>
+                    <li><a href="torneos.html">Torneos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-wide">
+            <section class="hero">
+                <h2>Bienvenidos</h2>
+                <p class="hero-lead">Tu espacio para explorar el mundo deportivo: desde las últimas noticias hasta los clásicos que nunca pasan de moda.</p>
+                <p class="hero-text">Fútbol, tenis, NBA, F1, NFL y MotoGP en un solo lugar.</p>
+                <a href="deportes.html" class="btn-primary">Explorar deportes</a>
+            </section>
+
+            <section class="home-section">
+                <h2 class="section-title">Explora el blog</h2>
+                <div class="quick-grid">
+                    <a href="noticias.html" class="quick-card">
+                        <span class="quick-icon">📰</span>
+                        <span class="quick-label">Noticias</span>
+                    </a>
+                    <a href="deportes.html" class="quick-card">
+                        <span class="quick-icon">⚽</span>
+                        <span class="quick-label">Deportes</span>
+                    </a>
+                    <a href="deportistas.html" class="quick-card">
+                        <span class="quick-icon">🏅</span>
+                        <span class="quick-label">Deportistas</span>
+                    </a>
+                    <a href="memorias.html" class="quick-card">
+                        <span class="quick-icon">📸</span>
+                        <span class="quick-label">Memorias</span>
+                    </a>
+                    <a href="torneos.html" class="quick-card">
+                        <span class="quick-icon">🏆</span>
+                        <span class="quick-label">Torneos</span>
+                    </a>
+                    <a href="deportes.html" class="quick-card">
+                        <span class="quick-icon">🏎️</span>
+                        <span class="quick-label">F1 & MotoGP</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="home-section">
+                <h2 class="section-title">Últimas noticias</h2>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <p class="news-card-tag">Fútbol</p>
+                        <h3>España, campeón del mundo 2026</h3>
+                        <p class="news-card-date">Julio 2026</p>
+                        <a href="noticias.html" class="news-card-link">Leer más →</a>
+                    </article>
+                    <article class="news-card">
+                        <p class="news-card-tag">Tenis</p>
+                        <h3>Sinner bicampeón en Wimbledon: defiende el título con autoridad</h3>
+                        <p class="news-card-date">Julio 2026</p>
+                        <a href="noticias.html" class="news-card-link">Leer más →</a>
+                    </article>
+                    <article class="news-card">
+                        <p class="news-card-tag">F1</p>
+                        <h3>Kimi Antonelli lidera el Mundial de F1 2026 con Mercedes</h3>
+                        <p class="news-card-date">Julio 2026</p>
+                        <a href="noticias.html" class="news-card-link">Leer más →</a>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <nav class="footer-nav" aria-label="Enlaces del sitio">
+                <a href="index.html">Inicio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="deportes.html">Deportes</a>
+                <a href="deportistas.html">Deportistas</a>
+                <a href="memorias.html">Memorias</a>
+                <a href="torneos.html">Torneos</a>
+            </nav>
+            <p>&copy; 2026 MyBlog - Todos los derechos reservados</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
