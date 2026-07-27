@@ -2,7 +2,7 @@
 
 Blog estático multi-página sobre el mundo del deporte: fútbol, tenis, NBA, F1, NFL y MotoGP. Construido con HTML, CSS y JavaScript puro, sin frameworks ni dependencias externas.
 
-> **Demo en vivo:** `https://mariacamilazapata155-svg.github.io/BlogDeportivo/`
+> **Demo en vivo:** https://mariacamilazapata155-svg.github.io/BlogDeportivo/
 
 ![Captura de pantalla del Blog Deportivo](docs/screenshots/home.png)
 
