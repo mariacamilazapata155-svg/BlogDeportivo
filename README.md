@@ -2,7 +2,7 @@
 
 Blog estático multi-página sobre el mundo del deporte: fútbol, tenis, NBA, F1, NFL y MotoGP. Construido con HTML, CSS y JavaScript puro, sin frameworks ni dependencias externas.
 
-> **Demo en vivo:** reemplaza esta URL tras desplegar en GitHub Pages → `https://mariacamilazapata155-svg.github.io/BlogDeportivo/`
+> **Demo en vivo:** `https://mariacamilazapata155-svg.github.io/BlogDeportivo/`
 
 ![Captura de pantalla del Blog Deportivo](docs/screenshots/home.png)
 
@@ -100,7 +100,7 @@ git push -u origin main
 
 2. En GitHub ve a **Settings → Pages**.
 3. En **Source**, selecciona la rama `main` y la carpeta `/ (root)`.
-4. Guarda. En unos minutos tu sitio estará en `https://mariacamilazapata155-svg.github.io/BlogDeportivo/`.
+4. Guarda. En unos minutos tu sitio estará en `https://TU-USUARIO.github.io/Myblog/`.
 
 5. Actualiza la URL de demo al inicio de este README.
 
